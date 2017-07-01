@@ -20,10 +20,5 @@ namespace GOOS_SampleTests.Step
             SeleniumWebDriver.Bootstrap(SeleniumWebDriver.Browser.Chrome);
         }
 
-        [AfterScenario]
-        public void AfterScenario()
-        {
-            //TODO: implement logic that has to run after executing each scenario
-        }
     }
 }
