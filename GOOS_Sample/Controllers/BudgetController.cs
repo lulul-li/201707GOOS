@@ -26,7 +26,7 @@ namespace GOOS_Sample.Controllers
             this.budgetService.Updated += (sender, e) => { ViewBag.Message = "updated successfully"; };
 
             this.budgetService.Create(model);
-            //ViewBag.Message = "added successfully";
+          //  ViewBag.Message = "added successfully";
 
             return View(model);
         }
