@@ -113,12 +113,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageObject\BudgetCreatePage.cs" />
+    <Compile Include="Step\BudgetCreate.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetCreate.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Step\BudgetCreateSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Step\BudgetCreate.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BudgetCreate.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
