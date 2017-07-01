@@ -20,8 +20,8 @@ namespace GOOS_SampleTests.Step
         public void BeforeScenario()
         {
             this._budgetController = new BudgetController();
-        }
 
+        }
         [When(@"add a budget")]
         public void WhenAddABudget(Table table)
         {

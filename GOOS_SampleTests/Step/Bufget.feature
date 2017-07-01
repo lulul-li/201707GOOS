@@ -1,4 +1,6 @@
-﻿@web
+﻿
+@web
+@CleanBudgets
 Feature: Bufget
 	In order to avoid silly mistakes
 	As a math idiot

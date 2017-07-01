@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentAutomation;
+using GOOS_Sample.Models;
 using TechTalk.SpecFlow;
 
 namespace GOOS_SampleTests.Step
@@ -18,6 +19,62 @@ namespace GOOS_SampleTests.Step
         public static void SetBrowser()
         {
             SeleniumWebDriver.Bootstrap(SeleniumWebDriver.Browser.Chrome);
+        }
+
+
+        [BeforeScenario()]
+        public void CleanTable()
+        {
+            var tags = ScenarioContext.Current.ScenarioInfo.Tags
+                .Where(x => x.StartsWith("Clean"))
+                .Select(x => x.Replace("Clean", ""));
+            if (!tags.Any())
+            {
+                return;
+            }
+            using (var dbcontext = new NorthwindEntities())
+            {
+                foreach (var tag in tags)
+                {
+                    dbcontext.Database.ExecuteSqlCommand(string.Format("TRUNCATE TABLE [{0}]", tag));
+                }
+                dbcontext.SaveChangesAsync();
+            }
+        }
+
+
+        [BeforeScenario()]
+        public void BeforeScenarioCleanTable()
+        {
+            CleanTableByTags();
+        }
+
+        [AfterFeature()]
+        public static void AfterFeatureCleanTable()
+        {
+            CleanTableByTags();
+        }
+
+        private static void CleanTableByTags()
+        {
+            var tags = ScenarioContext.Current.ScenarioInfo.Tags
+                .Where(x => x.StartsWith("Clean"))
+                .Select(x => x.Replace("Clean", ""));
+
+            if (!tags.Any())
+            {
+                return;
+            }
+
+            using (var dbcontext = new NorthwindEntities())
+            {
+                foreach (var tag in tags)
+                {
+                    dbcontext.Database.ExecuteSqlCommand(string.Format("TRUNCATE TABLE [{0}]", tag));
+                }
+
+                dbcontext.SaveChangesAsync();
+            }
         }
 
     }

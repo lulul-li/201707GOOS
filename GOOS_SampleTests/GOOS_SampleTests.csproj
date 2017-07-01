@@ -136,10 +136,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BudgetModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModelsForIntegrationTest\BudgetModel.Designer.cs">
+    <Compile Include="DataModelsForIntegrationTest\BudgetModelForTest.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BudgetModel.edmx</DependentUpon>
+      <DependentUpon>BudgetModelForTest.edmx</DependentUpon>
     </Compile>
     <Compile Include="Step\BufgetSteps.cs" />
     <Compile Include="PageObject\BudgetCreatePage.cs" />
@@ -162,22 +162,22 @@
     <Content Include="App.config" />
     <Content Include="DataModelsForIntegrationTest\BudgetModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BudgetModel.edmx</DependentUpon>
+      <DependentUpon>BudgetModelForTest.edmx</DependentUpon>
       <LastGenOutput>BudgetModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DataModelsForIntegrationTest\BudgetModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BudgetModel.edmx</DependentUpon>
+      <DependentUpon>BudgetModelForTest.edmx</DependentUpon>
       <LastGenOutput>BudgetModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="DataModelsForIntegrationTest\BudgetModel.edmx">
+    <EntityDeploy Include="DataModelsForIntegrationTest\BudgetModelForTest.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BudgetModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BudgetModelForTest.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataModelsForIntegrationTest\BudgetModel.edmx.diagram">
-      <DependentUpon>BudgetModel.edmx</DependentUpon>
+    <None Include="DataModelsForIntegrationTest\BudgetModelForTest.edmx.diagram">
+      <DependentUpon>BudgetModelForTest.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Step\BudgetController.feature">
