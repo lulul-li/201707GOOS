@@ -1,4 +1,5 @@
-﻿using GOOS_Sample.Models.ViewModels;
+﻿using System;
+using GOOS_Sample.Models.ViewModels;
 
 namespace GOOS_Sample.Models
 {
@@ -17,5 +18,8 @@ namespace GOOS_Sample.Models
             var budget = new Budget() { Amount = model.Amount, YearMonth = model.Month };
             this._budgetRepository.Save(budget);
         }
+
+        public event EventHandler Created;
+        public event EventHandler Updated;
     }
 }

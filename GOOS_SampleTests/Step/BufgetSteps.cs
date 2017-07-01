@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using FluentAutomation;
+using GOOS_SampleTests.DataModelsForIntegrationTest;
 using GOOS_SampleTests.PageObject;
 using GOOS_SampleTests.Step;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace GOOS_SampleTests
 {
@@ -37,6 +39,18 @@ namespace GOOS_SampleTests
         public void ThenItShouldDisplayAddedSuccessfull(string message)
         {
             this._budgetCreatePage.ShouldDisplay(message);
+        }
+
+
+        [Given(@"Budget table existed budgets")]
+        public void GivenBudgetTableExistedBudgets(Table table)
+        {
+            var budgets = table.CreateSet<Budget>();
+            using (var dbcontext = new NorthwindEntitiesForTest())
+            {
+                dbcontext.Budgets.AddRange(budgets);
+                dbcontext.SaveChanges();
+            }
         }
     }
 }
