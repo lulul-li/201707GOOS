@@ -5,32 +5,33 @@ namespace GOOS_SampleTests.PageObject
 {
     internal class BudgetCreatePage : PageObject<BudgetCreatePage>
     {
-        private BudgetCreatePage _budgetCreatePage;
-
-
         public BudgetCreatePage(FluentTest test)
             : base(test)
         {
+            this.Url = string.Format("{0}/budget/add", PageContext.Domain);
         }
 
         public BudgetCreatePage Amount(object amount)
         {
+            I.Enter(amount.ToString()).In("#amount");
             return this;
         }
 
         public BudgetCreatePage Month(string yearMonth)
         {
+            I.Enter(yearMonth).In("#month");
             return this;
         }
 
-        public BudgetCreatePage AddBudget()
+        public void AddBudget()
         {
-            return this;
+
+            I.Click("input[type=\"submit\"]");
         }
 
-        public BudgetCreatePage ShouldDisplay(object message)
+        public void ShouldDisplay(string message)
         {
-            throw new NotImplementedException();
+            I.Assert.Text(message).In("#message");
         }
     }
 }
