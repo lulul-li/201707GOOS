@@ -9,13 +9,12 @@ namespace GOOS_Sample
     {
         public static void RegisterComponents()
         {
-			var container = new UnityContainer();
-            
-            // register all your components with the container here
-            // it is NOT necessary to register your controllers
-            
-            // e.g. container.RegisterType<ITestService, TestService>();
+
+            var container = new UnityContainer();
+
+            container.RegisterType<IRepository<Budget>, BudgetRepository>();
             container.RegisterType<IBudgetService, BudgetService>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

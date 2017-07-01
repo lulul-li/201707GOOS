@@ -78,12 +78,15 @@ namespace GOOS_SampleTests.Step
             }
         }
 
+
         [BeforeTestRun()]
         public static void RegisterDIContainer()
         {
             UnityContainer = new UnityContainer();
+            UnityContainer.RegisterType<IRepository<Budget>, BudgetRepository>();
             UnityContainer.RegisterType<IBudgetService, BudgetService>();
         }
+
         public static IUnityContainer UnityContainer
         {
             get;
