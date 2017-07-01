@@ -122,6 +122,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bufget.feature</DependentUpon>
     </Compile>
+    <Compile Include="Step\Hooks.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
