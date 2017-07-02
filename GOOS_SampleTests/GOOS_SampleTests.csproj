@@ -143,8 +143,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModelsForIntegrationTest\Budget.cs">
+      <DependentUpon>BudgetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModelsForIntegrationTest\BudgetModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModelsForIntegrationTest\BudgetModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModelsForIntegrationTest\BudgetModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="PageObject\BudgetCreatePage.cs" />
     <Compile Include="PageObject\PageContext.cs" />
+    <Compile Include="SpecFlow\BudgetController.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetController.feature</DependentUpon>
+    </Compile>
+    <Compile Include="SpecFlow\BudgetControllerSteps.cs" />
     <Compile Include="SpecFlow\BudgetCreateSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecFlow\BudgetCreate.feature.cs">
@@ -152,12 +176,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BudgetCreate.feature</DependentUpon>
     </Compile>
+    <Compile Include="SpecFlow\Hooks.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Content Include="DataModelsForIntegrationTest\BudgetModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BudgetModel.edmx</DependentUpon>
+      <LastGenOutput>BudgetModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModelsForIntegrationTest\BudgetModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BudgetModel.edmx</DependentUpon>
+      <LastGenOutput>BudgetModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="DataModelsForIntegrationTest\BudgetModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BudgetModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataModelsForIntegrationTest\BudgetModel.edmx.diagram">
+      <DependentUpon>BudgetModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="SpecFlow\BudgetController.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BudgetController.feature.cs</LastGenOutput>
+    </None>
     <None Include="SpecFlow\BudgetCreate.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>BudgetCreate.feature.cs</LastGenOutput>
